@@ -3,7 +3,7 @@
 ## Installation
 
 ```sh
-git clone git@github.com:honzahommer/dotfiles.git $HOME/.dotfiles
+git clone https://github.com/honzahommer/dotfiles.git $HOME/.dotfiles
 
 cat <<EOT >> $HOME/.bashrc
 export DOTFILES_DIR="$HOME/.dotfiles"
