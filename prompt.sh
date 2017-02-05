@@ -119,7 +119,8 @@ export PS1;
 PS2="\[${yellow}\]→ \[${reset}\]";
 export PS2;
 
-echo ""
-echo ""
-neofetch
-
+if has "neofetch"; then
+  echo ""
+  echo ""
+  neofetch
+fi

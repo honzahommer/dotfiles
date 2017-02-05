@@ -34,7 +34,7 @@ function dot {
 
 # Check if command (program) exists
 function has {
-  command -v "$1"
+  type "$1" > /dev/null 2>&1
 }
 
 # Quick file backup
