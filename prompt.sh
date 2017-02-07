@@ -119,7 +119,7 @@ export PS1;
 PS2="\[${yellow}\]→ \[${reset}\]";
 export PS2;
 
-if has "neofetch"; then
+if hash neofetch 2>/dev/null; then
   echo ""
   echo ""
   neofetch
