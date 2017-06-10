@@ -102,27 +102,31 @@ function privkey {
 
 # Funny commit message
 function smb {
+  local hostname
   local username
-  local passwor
+  local mountdir
   local shares
   local share
-  local host
 
   for file in ~/.config/samba/${2:-*}; do
-    host=`basename ${file}`
     source ${file}
 
+    [ -z "${hostname}" ] && \
+      hostname=`basename ${file}`
+
+    mountdir=/home/${USER}/mnt/${hostname}/${share}
+
     for share in ${shares}; do
-      if mount | grep -q /home/${USER}/mnt/${host}/${share}; then
-        sudo umount /home/${USER}/mnt/${host}/${share}
+      if mount | grep -q ${mountdir}; then
+        sudo umount ${mountdir}
       fi
     done
 
     case $1 in
       mount)
         for share in ${shares}; do
-          mkdir -p /home/${USER}/mnt/${host}/${share}
-          sudo mount -t cifs //${host}/${share} /home/${USER}/mnt/${host}/${share} -o credentials=${file},noexec
+          mkdir -p ${mountdir}
+          sudo mount -t cifs //${hostname}/${share} ${mountdir} -o credentials=${file},noexec
         done
         ;;
     esac
