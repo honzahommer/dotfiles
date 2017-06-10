@@ -1,5 +1,6 @@
 # Allow aliases to be sudoed
 alias sudo="sudo "
+alias xu="sudo su"
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
@@ -35,14 +36,10 @@ alias r="fc -s"
 
 # Clear
 alias c="clear"
+alias cl="clear"
 
 # Copy & Paste
 if which xsel >/dev/null; then
   alias copy="xsel --clipboard --input"
   alias paste="xsel --clipboard --output"
 fi
-
-# SSHrc
-#if which sshrc >/dev/null; then
-#  alias ssh="sshrc"
-#fi
